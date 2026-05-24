@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Maafin Aku :(</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+/* =========================
+   RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  background:linear-gradient(135deg,#ffd6ec,#f3d1ff,#ffffff);
+  min-height:100vh;
+  color:#fff;
+}
+
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
+body::before{
+  content:'';
+  position:fixed;
+  width:300%;
+  height:300%;
+  background:
+  radial-gradient(circle,#ffffff55 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:bgMove 30s linear infinite;
+  z-index:-3;
+}
+
+@keyframes bgMove{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(-200px,-200px);
+  }
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+.hearts{
+  position:fixed;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.heart{
+  position:absolute;
+  bottom:-50px;
+  color:#ff4d88;
+  animation:floatHeart linear infinite;
+  opacity:0.7;
+}
+
+@keyframes floatHeart{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+  10%{
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+#opening{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(145deg,#ffb6d9,#cfa9ff);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  transition:1s;
+}
+
+#opening h1{
+  font-size:2rem;
+  margin-bottom:20px;
+  text-align:center;
+  padding:0 20px;
+  font-family:'Pacifico',cursive;
+}
+
+.open-btn{
+  border:none;
+  padding:15px 30px;
+  border-radius:999px;
+  background:white;
+  color:#ff4d88;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.open-btn:hover{
+  transform:scale(1.08);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.container{
+  display:none;
+  padding:25px;
+  text-align:center;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.photo-box{
+  width:220px;
+  height:220px;
+  margin:20px auto;
+  border-radius:30px;
+  overflow:hidden;
+  border:5px solid rgba(255,255,255,0.7);
+  box-shadow:0 10px 40px rgba(255,105,180,.4);
+}
+
+.photo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.title{
+  font-family:'Pacifico',cursive;
+  font-size:2.2rem;
+  color:#fff;
+  text-shadow:0 0 20px rgba(255,255,255,.7);
+}
+
+.typing{
+  margin-top:20px;
+  min-height:120px;
+  line-height:1.8;
+  font-size:1rem;
+  color:#fff;
+  background:rgba(255,255,255,.15);
+  padding:20px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:none;
+  padding:14px 25px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  transition:.3s;
+  position:relative;
+}
+
+.btn-angry{
+  background:#ff4d6d;
+  color:white;
+}
+
+.btn-love{
+  background:white;
+  color:#ff4d88;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+.countdown{
+  margin-top:25px;
+  font-size:1rem;
+  background:rgba(255,255,255,.15);
+  padding:15px;
+  border-radius:20px;
+}
+
+/* =========================
+   MINI GAME
+========================= */
+.game{
+  margin-top:40px;
+  background:rgba(255,255,255,.1);
+  padding:20px;
+  border-radius:25px;
+}
+
+.game h3{
+  margin-bottom:15px;
+}
+
+#gameArea{
+  position:relative;
+  width:100%;
+  height:250px;
+  overflow:hidden;
+  border-radius:20px;
+  background:rgba(255,255,255,.1);
+}
+
+.catch-heart{
+  position:absolute;
+  font-size:2rem;
+  cursor:pointer;
+  user-select:none;
+  animation:pop .3s;
+}
+
+@keyframes pop{
+  from{
+    transform:scale(0);
+  }
+  to{
+    transform:scale(1);
+  }
+}
+
+/* =========================
+   POPUP
+========================= */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.popup-box{
+  background:white;
+  width:90%;
+  max-width:350px;
+  padding:25px;
+  border-radius:25px;
+  text-align:center;
+  color:#444;
+  animation:popupAnim .4s ease;
+}
+
+@keyframes popupAnim{
+  from{
+    transform:scale(.7);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.popup-buttons{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+/* =========================
+   ENDING
+========================= */
+#ending{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:radial-gradient(circle,#ff9ecb,#cfa9ff,#ffffff);
+  z-index:99999;
+  animation:endingAnim 2s ease forwards;
+}
+
+@keyframes endingAnim{
+  from{
+    opacity:0;
+    transform:scale(1.2);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+#ending h1{
+  font-family:'Pacifico',cursive;
+  color:white;
+  font-size:2rem;
+  text-align:center;
+  padding:20px;
+  text-shadow:0 0 25px rgba(255,255,255,.9);
+}
+
+#ending i{
+  font-size:4rem;
+  margin-top:20px;
+  animation:heartbeat 1s infinite;
+}
+
+@keyframes heartbeat{
+  0%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.2);
+  }
+  100%{
+    transform:scale(1);
+  }
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+.music-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  color:#ff4d88;
+  z-index:9999;
+  cursor:pointer;
+  font-size:1.2rem;
+  box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+/* =========================
+   SHAKE
+========================= */
+.shake{
+  animation:shake .3s;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-8px);}
+  50%{transform:translateX(8px);}
+  75%{transform:translateX(-8px);}
+  100%{transform:translateX(0);}
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:600px){
+  .title{
+    font-size:1.8rem;
+  }
+
+  .typing{
+    font-size:.95rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts" id="hearts"></div>
+
+<!-- OPENING -->
+<section id="opening">
+  <h1>eh bentar jangan marah dulu 😔</h1>
+  <button class="open-btn" id="startBtn">
+    klik aku
+  </button>
+</section>
+
+<!-- MUSIC BUTTON -->
+<button class="music-btn" id="musicBtn">
+  <i class="fa-solid fa-volume-high"></i>
+</button>
+
+<!-- YOUTUBE MUSIC -->
+<div style="position:absolute; width:0; height:0; overflow:hidden;">
+  <iframe
+    id="ytplayer"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&loop=1&playlist=jfKfPfyJRdk"
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
+</div>
+
+<!-- MAIN -->
+<div class="container" id="mainContent">
+
+  <div class="photo-box">
+    <!-- GANTI FOTO DISINI -->
+    <img src="https://i.pinimg.com/736x/f5/89/f4/f589f47dfb77d9e65e71b9f0c7b4d7aa.jpg">
+  </div>
+
+  <h1 class="title">
+    maaf ya manusia cantikku :(
+  </h1>
+
+  <div class="typing" id="typingText"></div>
+
+  <div class="countdown">
+    ⏳ aku kangen kamu selama:
+    <h2 id="timer"></h2>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="buttons">
+    <button class="btn btn-angry" id="askBtn">
+      aku masih dimarahin?
+    </button>
+  </div>
+
+  <!-- MINI GAME -->
+  <div class="game">
+    <h3>Tangkap hati yang jatuh 😤❤️</h3>
+    <p>Karena apparently minta maaf doang belum cukup buat umat manusia.</p>
+    <br>
+    <div id="gameArea"></div>
+    <p style="margin-top:10px;">
+      Score: <span id="score">0</span>
+    </p>
+  </div>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h2>jadi... masih marah? 🥲</h2>
+
+    <p style="margin-top:10px;">
+      aku tau salahku nyebelin banget karena ngilang seharian.  
+      otakku emang kadang kaya wifi indomaret. putus nyambung.
+    </p>
+
+    <div class="popup-buttons">
+      <button class="btn btn-angry" id="runBtn">
+        iya masih 😡
+      </button>
+
+      <button class="btn btn-love" id="forgiveBtn">
+        udah maafin ❤️
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ENDING -->
+<div id="ending">
+  <h1>
+    makasih udah maafin manusia paling nyebelin ini ❤️
+  </h1>
+
+  <i class="fa-solid fa-heart"></i>
+</div>
+
+<!-- SOUND EFFECT -->
+<audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3"></audio>
+
+<script>
+/* =========================
+   OPENING TRANSITION
+========================= */
+const startBtn = document.getElementById('startBtn');
+const opening = document.getElementById('opening');
+const mainContent = document.getElementById('mainContent');
+const clickSound = document.getElementById('clickSound');
+
+startBtn.addEventListener('click',()=>{
+  clickSound.play();
+
+  opening.style.opacity = '0';
+
+  setTimeout(()=>{
+    opening.style.display='none';
+    mainContent.style.display='block';
+  },1000);
+});
+
+/* =========================
+   TYPING EFFECT
+========================= */
+const text = `
+aku minta maaf ya karena seharian ngga ngabarin kamu :(
+
+bukan karena aku ngga peduli...
+kadang aku cuma bego aja ngatur kepala sendiri.
+
+tapi jujur...
+aku tetep mikirin kamu terus.
+
+dan sekarang aku bikin website ini sambil berharap
+kamu ngga lempar sendal virtual ke muka aku 😔
+`;
+
+let i = 0;
+const typingText = document.getElementById('typingText');
+
+function typeEffect(){
+  if(i < text.length){
+    typingText.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect,35);
+  }
+}
+typeEffect();
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+const heartsContainer = document.getElementById('hearts');
+
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML='❤️';
+
+  heart.style.left = Math.random()*100+'vw';
+  heart.style.fontSize = (Math.random()*20+15)+'px';
+  heart.style.animationDuration = (Math.random()*5+5)+'s';
+
+  heartsContainer.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },10000);
+}
+
+setInterval(createHeart,400);
+
+/* =========================
+   COUNTDOWN
+========================= */
+const timer = document.getElementById('timer');
+
+let seconds = 0;
+
+setInterval(()=>{
+  seconds++;
+
+  const hrs = Math.floor(seconds/3600);
+  const mins = Math.floor((seconds%3600)/60);
+  const secs = seconds%60;
+
+  timer.innerHTML = `${hrs} jam ${mins} menit ${secs} detik`;
+},1000);
+
+/* =========================
+   POPUP
+========================= */
+const askBtn = document.getElementById('askBtn');
+const popup = document.getElementById('popup');
+
+askBtn.addEventListener('click',()=>{
+  clickSound.play();
+  popup.style.display='flex';
+});
+
+/* =========================
+   RUN BUTTON
+========================= */
+const runBtn = document.getElementById('runBtn');
+
+runBtn.addEventListener('mouseover',()=>{
+  const x = Math.random()*250 - 100;
+  const y = Math.random()*150 - 50;
+
+  runBtn.style.transform = `translate(${x}px,${y}px)`;
+
+  document.body.classList.add('shake');
+
+  setTimeout(()=>{
+    document.body.classList.remove('shake');
+  },300);
+});
+
+/* =========================
+   FORGIVE BUTTON
+========================= */
+const forgiveBtn = document.getElementById('forgiveBtn');
+const ending = document.getElementById('ending');
+
+forgiveBtn.addEventListener('click',()=>{
+
+  clickSound.play();
+
+  createConfetti();
+
+  popup.style.display='none';
+
+  setTimeout(()=>{
+    ending.style.display='flex';
+  },1500);
+});
+
+/* =========================
+   CONFETTI
+========================= */
+function createConfetti(){
+
+  for(let i=0;i<120;i++){
+
+    const conf = document.createElement('div');
+
+    conf.style.position='fixed';
+    conf.style.width='10px';
+    conf.style.height='10px';
+    conf.style.background=`hsl(${Math.random()*360},100%,70%)`;
+
+    conf.style.left=Math.random()*100+'vw';
+    conf.style.top='-20px';
+
+    conf.style.zIndex='999999';
+
+    conf.style.borderRadius='50%';
+
+    document.body.appendChild(conf);
+
+    const duration = Math.random()*3+2;
+
+    conf.animate([
+      {
+        transform:'translateY(0) rotate(0deg)',
+        opacity:1
+      },
+      {
+        transform:`translateY(${window.innerHeight+100}px) rotate(720deg)`,
+        opacity:0
+      }
+    ],{
+      duration:duration*1000,
+      easing:'linear'
+    });
+
+    setTimeout(()=>{
+      conf.remove();
+    },duration*1000);
+  }
+}
+
+/* =========================
+   MINI GAME
+========================= */
+const gameArea = document.getElementById('gameArea');
+const scoreText = document.getElementById('score');
+
+let score = 0;
+
+function spawnGameHeart(){
+
+  const heart = document.createElement('div');
+
+  heart.classList.add('catch-heart');
+
+  heart.innerHTML='💖';
+
+  heart.style.left=Math.random()*90+'%';
+  heart.style.top=Math.random()*80+'%';
+
+  gameArea.appendChild(heart);
+
+  heart.addEventListener('click',()=>{
+
+    score++;
+
+    scoreText.innerHTML=score;
+
+    heart.remove();
+
+    // Easter egg
+    if(score === 14){
+      alert('cie masih lanjut baca sampe sini 😤❤️');
+    }
+  });
+
+  setTimeout(()=>{
+    heart.remove();
+  },2000);
+}
+
+setInterval(spawnGameHeart,900);
+
+/* =========================
+   RANDOM DIALOG
+========================= */
+const randomTexts = [
+  "aku udah nyiapin mental dimarahin 3 hari 😔",
+  "tolong jangan blokir aku dulu",
+  "aku lebih takut kamu marah daripada error JavaScript",
+  "kamu cantik pas senyum, pas marah kaya bos terakhir game"
+];
+
+setInterval(()=>{
+
+  const bubble = document.createElement('div');
+
+  bubble.innerHTML = randomTexts[Math.floor(Math.random()*randomTexts.length)];
+
+  bubble.style.position='fixed';
+  bubble.style.bottom='20px';
+  bubble.style.left='50%';
+  bubble.style.transform='translateX(-50%)';
+
+  bubble.style.background='rgba(255,255,255,.2)';
+  bubble.style.padding='12px 18px';
+  bubble.style.borderRadius='999px';
+  bubble.style.backdropFilter='blur(10px)';
+  bubble.style.color='white';
+  bubble.style.fontSize='.9rem';
+  bubble.style.zIndex='999';
+
+  document.body.appendChild(bubble);
+
+  bubble.animate([
+    {opacity:0,transform:'translateX(-50%) translateY(20px)'},
+    {opacity:1,transform:'translateX(-50%) translateY(0)'},
+    {opacity:0,transform:'translateX(-50%) translateY(-20px)'}
+  ],{
+    duration:4000
+  });
+
+  setTimeout(()=>{
+    bubble.remove();
+  },4000);
+
+},7000);
+
+/* =========================
+   MUSIC TOGGLE
+========================= */
+const musicBtn = document.getElementById('musicBtn');
+const ytplayer = document.getElementById('ytplayer');
+
+let muted = false;
+
+musicBtn.addEventListener('click',()=>{
+
+  clickSound.play();
+
+  if(!muted){
+
+    ytplayer.src = ytplayer.src.replace("&autoplay=1","&autoplay=0");
+
+    musicBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+
+    muted=true;
+
+  }else{
+
+    ytplayer.src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&loop=1&playlist=jfKfPfyJRdk";
+
+    musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+
+    muted=false;
+  }
+});
+</script>
+
+</body>
+</html>
