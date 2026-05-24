@@ -1026,6 +1026,23 @@ document.getElementById('score');
 
 let score = 0;
 
+/* SECRET STATUS */
+
+let secretUnlocked = false;
+
+/* RANDOM MESSAGE */
+
+const afterSecretMessages = [
+
+  "ih jangan game terus 😤",
+  "aku udah maafin duluan itu",
+  "fokus ke aku dong jangan ke score 😔",
+  "kamu serius banget nangkep heart nya 😭",
+  "udah cukup pro player nya woi",
+  "aku kira mau minta maaf ternyata grinding score"
+
+];
+
 /* SPAWN HEART */
 
 function spawnHeart(){
@@ -1045,7 +1062,7 @@ function spawnHeart(){
 
   gameArea.appendChild(heart);
 
-  /* KLIK HEART */
+  /* CLICK HEART */
 
   heart.addEventListener('click',()=>{
 
@@ -1055,9 +1072,13 @@ function spawnHeart(){
 
     heart.remove();
 
-    /* EASTER EGG */
+    createMiniConfetti();
 
-    if(score === 14){
+    /* SECRET MESSAGE */
+
+    if(score === 14 && !secretUnlocked){
+
+      secretUnlocked = true;
 
       alert(
         'secret unlocked 😤❤️\\n\\nsebenernya aku kangen banget sama kamu.'
@@ -1065,9 +1086,22 @@ function spawnHeart(){
 
     }
 
-    /* EFFECT */
+    /* RANDOM ALERT SETELAH SECRET */
 
-    createMiniConfetti();
+    else if(secretUnlocked && score % 7 === 0){
+
+      const randomMessage =
+
+      afterSecretMessages[
+        Math.floor(
+          Math.random() *
+          afterSecretMessages.length
+        )
+      ];
+
+      alert(randomMessage);
+
+    }
 
   });
 
@@ -1081,7 +1115,7 @@ function spawnHeart(){
 
 }
 
-/* SPAWN TERUS */
+/* LOOP SPAWN */
 
 setInterval(spawnHeart,900);
 
@@ -1102,13 +1136,13 @@ function createMiniConfetti(){
 
     conf.style.borderRadius='50%';
 
-    conf.style.left=
-    Math.random()*100+'vw';
+    conf.style.left =
+    Math.random()*100 + 'vw';
 
-    conf.style.top=
-    Math.random()*100+'vh';
+    conf.style.top =
+    Math.random()*100 + 'vh';
 
-    conf.style.background=
+    conf.style.background =
     `hsl(${Math.random()*360},100%,70%)`;
 
     conf.style.zIndex='999999';
@@ -1142,7 +1176,6 @@ function createMiniConfetti(){
   }
 
 }
-
 </script>
 
 </body>
