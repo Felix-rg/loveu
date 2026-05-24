@@ -421,6 +421,86 @@ body{
 
 }
 
+/* =========================
+   MINI GAME
+========================= */
+
+.game{
+
+  margin-top:40px;
+
+  background:rgba(255,255,255,.18);
+
+  backdrop-filter:blur(8px);
+
+  padding:20px;
+
+  border-radius:25px;
+
+  color:white;
+
+  text-shadow:0 2px 5px rgba(0,0,0,.2);
+
+}
+
+#gameArea{
+
+  position:relative;
+
+  width:100%;
+
+  height:300px;
+
+  margin-top:20px;
+
+  overflow:hidden;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,.12);
+
+}
+
+.catch-heart{
+
+  position:absolute;
+
+  font-size:2rem;
+
+  cursor:pointer;
+
+  animation:heartPop .3s;
+
+  user-select:none;
+
+}
+
+@keyframes heartPop{
+
+  from{
+
+    transform:scale(0);
+
+  }
+
+  to{
+
+    transform:scale(1);
+
+  }
+
+}
+
+.score-box{
+
+  margin-top:15px;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+}
+
 </style>
 </head>
 
@@ -505,6 +585,28 @@ body{
 
   </div>
 
+   <!-- MINI GAME -->
+<div class="game">
+
+  <h3>
+    tangkap hati yang jatuh 😤❤️
+  </h3>
+
+  <p>
+    kumpulin hati buat buka secret message
+  </p>
+
+  <div id="gameArea"></div>
+
+  <div class="score-box">
+
+    score:
+    <span id="score">0</span>
+
+  </div>
+
+</div>
+   
 </div>
 
 <!-- POPUP -->
@@ -911,6 +1013,135 @@ waLove.addEventListener('click',()=>{
   );
 
 });
+
+/* =========================
+   MINI GAME
+========================= */
+
+const gameArea =
+document.getElementById('gameArea');
+
+const scoreText =
+document.getElementById('score');
+
+let score = 0;
+
+/* SPAWN HEART */
+
+function spawnHeart(){
+
+  const heart =
+  document.createElement('div');
+
+  heart.classList.add('catch-heart');
+
+  heart.innerHTML = '💖';
+
+  heart.style.left =
+  Math.random()*90 + '%';
+
+  heart.style.top =
+  Math.random()*80 + '%';
+
+  gameArea.appendChild(heart);
+
+  /* KLIK HEART */
+
+  heart.addEventListener('click',()=>{
+
+    score++;
+
+    scoreText.innerHTML = score;
+
+    heart.remove();
+
+    /* EASTER EGG */
+
+    if(score === 14){
+
+      alert(
+        'secret unlocked 😤❤️\\n\\nsebenernya aku kangen banget sama kamu.'
+      );
+
+    }
+
+    /* EFFECT */
+
+    createMiniConfetti();
+
+  });
+
+  /* AUTO REMOVE */
+
+  setTimeout(()=>{
+
+    heart.remove();
+
+  },1800);
+
+}
+
+/* SPAWN TERUS */
+
+setInterval(spawnHeart,900);
+
+/* MINI CONFETTI */
+
+function createMiniConfetti(){
+
+  for(let i=0;i<15;i++){
+
+    const conf =
+    document.createElement('div');
+
+    conf.style.position='fixed';
+
+    conf.style.width='8px';
+
+    conf.style.height='8px';
+
+    conf.style.borderRadius='50%';
+
+    conf.style.left=
+    Math.random()*100+'vw';
+
+    conf.style.top=
+    Math.random()*100+'vh';
+
+    conf.style.background=
+    `hsl(${Math.random()*360},100%,70%)`;
+
+    conf.style.zIndex='999999';
+
+    document.body.appendChild(conf);
+
+    conf.animate([
+
+      {
+        transform:'translateY(0)',
+        opacity:1
+      },
+
+      {
+        transform:'translateY(-100px)',
+        opacity:0
+      }
+
+    ],{
+
+      duration:800
+
+    });
+
+    setTimeout(()=>{
+
+      conf.remove();
+
+    },800);
+
+  }
+
+}
 
 </script>
 
