@@ -27,22 +27,22 @@
 body{
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
-  background:
-  linear-gradient(135deg,#ffd6ea,#e7c6ff,#ffffff);
   min-height:100vh;
+  background:
+  linear-gradient(135deg,#ffd6ea,#e6c4ff,#ffffff);
   color:white;
   position:relative;
 }
 
 /* =========================
-   ANIMATED BACKGROUND
+   BACKGROUND BLUR
 ========================= */
 
-.bg-blur{
+.bg{
   position:fixed;
   inset:0;
-  z-index:-3;
   overflow:hidden;
+  z-index:-3;
 }
 
 .blur{
@@ -50,7 +50,7 @@ body{
   border-radius:50%;
   filter:blur(90px);
   opacity:.5;
-  animation:move 15s infinite alternate ease-in-out;
+  animation:move 12s infinite alternate ease-in-out;
 }
 
 .blur1{
@@ -64,7 +64,7 @@ body{
 .blur2{
   width:350px;
   height:350px;
-  background:#d39bff;
+  background:#cf9dff;
   bottom:-100px;
   right:-100px;
 }
@@ -81,13 +81,14 @@ body{
   from{
     transform:translate(0,0);
   }
+
   to{
     transform:translate(60px,-60px);
   }
 }
 
 /* =========================
-   FLOATING HEARTS
+   HEART RAIN
 ========================= */
 
 .hearts{
@@ -106,6 +107,7 @@ body{
 }
 
 @keyframes floatHeart{
+
   0%{
     transform:translateY(0) rotate(0);
     opacity:0;
@@ -119,10 +121,11 @@ body{
     transform:translateY(-120vh) rotate(360deg);
     opacity:0;
   }
+
 }
 
 /* =========================
-   OPENING SCREEN
+   OPENING
 ========================= */
 
 #opening{
@@ -134,7 +137,7 @@ body{
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  z-index:9999;
+  z-index:99999;
   transition:1s;
 }
 
@@ -143,7 +146,7 @@ body{
   font-size:2rem;
   text-align:center;
   padding:20px;
-  text-shadow:0 0 15px rgba(255,255,255,.6);
+  text-shadow:0 0 15px rgba(255,255,255,.7);
 }
 
 #opening p{
@@ -154,15 +157,15 @@ body{
 .start-btn{
   margin-top:30px;
   border:none;
-  background:white;
-  color:#ff4d88;
   padding:15px 35px;
   border-radius:999px;
+  background:white;
+  color:#ff4d88;
   font-weight:700;
+  font-size:1rem;
   cursor:pointer;
   transition:.3s;
-  font-size:1rem;
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .start-btn:hover{
@@ -181,14 +184,17 @@ body{
 }
 
 @keyframes fadeIn{
+
   from{
     opacity:0;
     transform:translateY(30px);
   }
+
   to{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 .photo{
@@ -216,7 +222,7 @@ body{
 .typing-box{
   margin-top:25px;
   background:rgba(255,255,255,.15);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
   padding:20px;
   border-radius:25px;
   line-height:1.8;
@@ -231,17 +237,13 @@ body{
 .countdown{
   margin-top:25px;
   background:rgba(255,255,255,.15);
+  backdrop-filter:blur(10px);
   padding:18px;
   border-radius:20px;
-  backdrop-filter:blur(10px);
-}
-
-.countdown h2{
-  margin-top:10px;
 }
 
 /* =========================
-   BUTTONS
+   BUTTON
 ========================= */
 
 .buttons{
@@ -250,18 +252,18 @@ body{
 
 .main-btn{
   border:none;
-  padding:16px 28px;
+  padding:15px 28px;
   border-radius:999px;
-  font-weight:700;
-  cursor:pointer;
   background:white;
   color:#ff4d88;
+  font-weight:700;
+  cursor:pointer;
   transition:.3s;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .main-btn:hover{
-  transform:scale(1.07);
+  transform:scale(1.08);
 }
 
 /* =========================
@@ -275,7 +277,7 @@ body{
   display:none;
   justify-content:center;
   align-items:center;
-  z-index:99999;
+  z-index:999999;
 }
 
 .popup-box{
@@ -289,14 +291,17 @@ body{
 }
 
 @keyframes popup{
+
   from{
     transform:scale(.7);
     opacity:0;
   }
+
   to{
     transform:scale(1);
     opacity:1;
   }
+
 }
 
 .popup-buttons{
@@ -305,6 +310,15 @@ body{
   justify-content:center;
   gap:10px;
   flex-wrap:wrap;
+}
+
+.popup-buttons button{
+  border:none;
+  padding:14px 20px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  transition:.3s;
 }
 
 .angry-btn{
@@ -317,15 +331,6 @@ body{
   color:white;
 }
 
-.popup-buttons button{
-  border:none;
-  padding:14px 20px;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:700;
-  transition:.3s;
-}
-
 /* =========================
    MINI GAME
 ========================= */
@@ -333,9 +338,9 @@ body{
 .game{
   margin-top:40px;
   background:rgba(255,255,255,.15);
+  backdrop-filter:blur(10px);
   padding:20px;
   border-radius:25px;
-  backdrop-filter:blur(10px);
 }
 
 #gameArea{
@@ -343,9 +348,9 @@ body{
   width:100%;
   height:260px;
   overflow:hidden;
-  margin-top:15px;
   border-radius:20px;
   background:rgba(255,255,255,.08);
+  margin-top:15px;
 }
 
 .catch-heart{
@@ -356,12 +361,15 @@ body{
 }
 
 @keyframes pop{
+
   from{
     transform:scale(0);
   }
+
   to{
     transform:scale(1);
   }
+
 }
 
 /* =========================
@@ -377,45 +385,60 @@ body{
   flex-direction:column;
   background:
   radial-gradient(circle,#ff9fd0,#d3a3ff,#fff);
-  z-index:999999;
+  z-index:9999999;
   animation:ending 2s ease forwards;
 }
 
 @keyframes ending{
+
   from{
     opacity:0;
     transform:scale(1.2);
   }
+
   to{
     opacity:1;
     transform:scale(1);
   }
+
 }
 
 #ending h1{
   font-family:'Pacifico',cursive;
+  font-size:2rem;
   text-align:center;
   padding:20px;
-  font-size:2rem;
   text-shadow:0 0 20px rgba(255,255,255,.8);
 }
 
-#ending i{
+#waLove{
+  margin-top:25px;
   font-size:5rem;
-  margin-top:20px;
+  cursor:pointer;
   animation:beat 1s infinite;
+  transition:.3s;
+  user-select:none;
+}
+
+#waLove:hover{
+  transform:scale(1.2);
+  filter:drop-shadow(0 0 20px rgba(255,255,255,.8));
 }
 
 @keyframes beat{
+
   0%{
     transform:scale(1);
   }
+
   50%{
     transform:scale(1.2);
   }
+
   100%{
     transform:scale(1);
   }
+
 }
 
 /* =========================
@@ -433,7 +456,7 @@ body{
   background:white;
   color:#ff4d88;
   cursor:pointer;
-  z-index:99999;
+  z-index:999999;
   font-size:1.1rem;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
@@ -447,26 +470,12 @@ body{
 }
 
 @keyframes shake{
+
   0%{transform:translateX(0);}
   25%{transform:translateX(-8px);}
   50%{transform:translateX(8px);}
   75%{transform:translateX(-8px);}
   100%{transform:translateX(0);}
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-  .title{
-    font-size:1.8rem;
-  }
-
-  .typing-box{
-    font-size:.95rem;
-  }
 
 }
 
@@ -476,13 +485,15 @@ body{
 <body>
 
 <!-- BACKGROUND -->
-<div class="bg-blur">
+<div class="bg">
+
   <div class="blur blur1"></div>
   <div class="blur blur2"></div>
   <div class="blur blur3"></div>
+
 </div>
 
-<!-- FLOATING HEART -->
+<!-- HEARTS -->
 <div class="hearts" id="hearts"></div>
 
 <!-- OPENING -->
@@ -500,13 +511,13 @@ body{
 
 <!-- MUSIC BUTTON -->
 <button class="music-btn" id="musicBtn">
+
   <i class="fa-solid fa-volume-high"></i>
+
 </button>
 
-<!-- BACKGROUND MUSIC -->
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3?filename=romantic-piano-ambient-110624.mp3" type="audio/mp3">
-</audio>
+<!-- YOUTUBE PLAYER -->
+<div id="youtubePlayer"></div>
 
 <!-- CLICK SOUND -->
 <audio id="clickSound">
@@ -519,7 +530,7 @@ body{
   <!-- FOTO -->
   <div class="photo">
 
-    <!-- GANTI FOTO DISINI -->
+    <!-- GANTI FOTO -->
     <img src="https://i.pinimg.com/736x/f5/89/f4/f589f47dfb77d9e65e71b9f0c7b4d7aa.jpg">
 
   </div>
@@ -549,13 +560,13 @@ body{
 
   </div>
 
-  <!-- GAME -->
+  <!-- MINI GAME -->
   <div class="game">
 
     <h3>mini game tangkap hati 😤❤️</h3>
 
     <p>
-      karena apparently bikin website romantis aja belum cukup.
+      karena apparently minta maaf doang belum cukup.
     </p>
 
     <div id="gameArea"></div>
@@ -579,6 +590,9 @@ body{
     <p style="margin-top:15px; line-height:1.7;">
 
       aku tau aku salah karena ngilang seharian.
+
+      <br><br>
+
       otakku kadang loadingnya lebih lemot dari wifi warung kopi.
 
       <br><br>
@@ -611,9 +625,19 @@ body{
     makasih udah maafin manusia paling nyebelin ini ❤️
   </h1>
 
-  <i class="fa-solid fa-heart"></i>
+  <!-- LOVE -->
+  <div id="waLove">
+    ❤️
+  </div>
+
+  <p style="margin-top:15px;">
+    pencet love nya ya 😔
+  </p>
 
 </div>
+
+<!-- YOUTUBE API -->
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 
@@ -621,34 +645,99 @@ body{
    ELEMENT
 ========================= */
 
-const startBtn = document.getElementById('startBtn');
-const opening = document.getElementById('opening');
-const mainContent = document.getElementById('mainContent');
-const typingText = document.getElementById('typingText');
-const popup = document.getElementById('popup');
-const openPopup = document.getElementById('openPopup');
-const runBtn = document.getElementById('runBtn');
-const forgiveBtn = document.getElementById('forgiveBtn');
-const ending = document.getElementById('ending');
-const hearts = document.getElementById('hearts');
-const timer = document.getElementById('timer');
-const bgMusic = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('musicBtn');
-const clickSound = document.getElementById('clickSound');
+const startBtn =
+document.getElementById('startBtn');
+
+const opening =
+document.getElementById('opening');
+
+const mainContent =
+document.getElementById('mainContent');
+
+const typingText =
+document.getElementById('typingText');
+
+const popup =
+document.getElementById('popup');
+
+const openPopup =
+document.getElementById('openPopup');
+
+const runBtn =
+document.getElementById('runBtn');
+
+const forgiveBtn =
+document.getElementById('forgiveBtn');
+
+const ending =
+document.getElementById('ending');
+
+const hearts =
+document.getElementById('hearts');
+
+const timer =
+document.getElementById('timer');
+
+const clickSound =
+document.getElementById('clickSound');
+
+const musicBtn =
+document.getElementById('musicBtn');
 
 /* =========================
-   MUSIC
+   YOUTUBE MUSIC
 ========================= */
 
-bgMusic.volume = 0.2;
+let player;
+let musicStarted = false;
 
-let muted = false;
+function onYouTubeIframeAPIReady(){
+
+  player = new YT.Player('youtubePlayer', {
+
+    height:'0',
+    width:'0',
+
+    videoId:'gCYcHz2k5x0',
+
+    playerVars:{
+
+      autoplay:0,
+      loop:1,
+      playlist:'gCYcHz2k5x0',
+
+      controls:0,
+      modestbranding:1
+
+    },
+
+    events:{
+
+      onReady:(event)=>{
+
+        event.target.setVolume(15);
+
+      }
+
+    }
+
+  });
+
+}
 
 function startMusic(){
 
-  bgMusic.play().catch(()=>{});
+  if(player && !musicStarted){
+
+    player.playVideo();
+
+    musicStarted = true;
+
+  }
 
 }
+
+let muted = false;
 
 musicBtn.addEventListener('click',()=>{
 
@@ -656,7 +745,7 @@ musicBtn.addEventListener('click',()=>{
 
   if(!muted){
 
-    bgMusic.pause();
+    player.mute();
 
     musicBtn.innerHTML =
     '<i class="fa-solid fa-volume-xmark"></i>';
@@ -665,12 +754,13 @@ musicBtn.addEventListener('click',()=>{
 
   }else{
 
-    bgMusic.play();
+    player.unMute();
 
     musicBtn.innerHTML =
     '<i class="fa-solid fa-volume-high"></i>';
 
     muted = false;
+
   }
 
 });
@@ -708,15 +798,14 @@ aku minta maaf ya :(
 aku tau ngilang seharian tanpa kabar itu nyebelin banget.
 
 bukan karena aku ga peduli...
+
 kadang aku cuma bego ngatur isi kepala sendiri.
 
 tapi serius...
+
 aku tetep mikirin kamu terus.
 
-dan sekarang aku sampe bikin website begini demi minta maaf.
-
-iya aku tau.
-ini antara romantis atau desperate.
+dan sekarang aku bikin website ini sambil berharap kamu ga lempar sendal virtual ke aku 😔
 `;
 
 let i = 0;
@@ -743,17 +832,21 @@ typingEffect();
 
 function createHeart(){
 
-  const heart = document.createElement('div');
+  const heart =
+  document.createElement('div');
 
   heart.classList.add('heart');
 
   heart.innerHTML='❤️';
 
-  heart.style.left=Math.random()*100+'vw';
+  heart.style.left =
+  Math.random()*100+'vw';
 
-  heart.style.fontSize=(Math.random()*20+15)+'px';
+  heart.style.fontSize =
+  (Math.random()*20+15)+'px';
 
-  heart.style.animationDuration=(Math.random()*5+5)+'s';
+  heart.style.animationDuration =
+  (Math.random()*5+5)+'s';
 
   hearts.appendChild(heart);
 
@@ -777,12 +870,14 @@ setInterval(()=>{
 
   seconds++;
 
-  const hrs = Math.floor(seconds/3600);
+  const hrs =
+  Math.floor(seconds/3600);
 
   const mins =
   Math.floor((seconds%3600)/60);
 
-  const secs = seconds%60;
+  const secs =
+  seconds%60;
 
   timer.innerHTML =
   `${hrs} jam ${mins} menit ${secs} detik`;
@@ -790,7 +885,7 @@ setInterval(()=>{
 },1000);
 
 /* =========================
-   OPEN POPUP
+   POPUP
 ========================= */
 
 openPopup.addEventListener('click',()=>{
@@ -827,26 +922,6 @@ runBtn.addEventListener('mouseover',()=>{
 });
 
 /* =========================
-   FORGIVE BUTTON
-========================= */
-
-forgiveBtn.addEventListener('click',()=>{
-
-  clickSound.play();
-
-  popup.style.display='none';
-
-  createConfetti();
-
-  setTimeout(()=>{
-
-    ending.style.display='flex';
-
-  },1200);
-
-});
-
-/* =========================
    CONFETTI
 ========================= */
 
@@ -865,12 +940,12 @@ function createConfetti(){
 
     conf.style.borderRadius='50%';
 
-    conf.style.left=
+    conf.style.left =
     Math.random()*100+'vw';
 
     conf.style.top='-20px';
 
-    conf.style.background=
+    conf.style.background =
     `hsl(${Math.random()*360},100%,70%)`;
 
     conf.style.zIndex='999999';
@@ -883,7 +958,7 @@ function createConfetti(){
     conf.animate([
 
       {
-        transform:'translateY(0) rotate(0)',
+        transform:'translateY(0)',
         opacity:1
       },
 
@@ -912,6 +987,54 @@ function createConfetti(){
 }
 
 /* =========================
+   FORGIVE BUTTON
+========================= */
+
+forgiveBtn.addEventListener('click',()=>{
+
+  clickSound.play();
+
+  popup.style.display='none';
+
+  createConfetti();
+
+  setTimeout(()=>{
+
+    ending.style.display='flex';
+
+  },1200);
+
+});
+
+/* =========================
+   WHATSAPP LOVE BUTTON
+========================= */
+
+const waLove =
+document.getElementById('waLove');
+
+/*
+   GANTI NOMOR INI
+*/
+
+const nomorWA =
+'62895378231319';
+
+waLove.addEventListener('click',()=>{
+
+  const pesan =
+  encodeURIComponent(
+    'yaudah aku maafin ❤️'
+  );
+
+  window.open(
+    `https://wa.me/${nomorWA}?text=${pesan}`,
+    '_blank'
+  );
+
+});
+
+/* =========================
    MINI GAME
 ========================= */
 
@@ -932,10 +1055,10 @@ function spawnHeart(){
 
   heart.innerHTML='💖';
 
-  heart.style.left=
+  heart.style.left =
   Math.random()*90+'%';
 
-  heart.style.top=
+  heart.style.top =
   Math.random()*80+'%';
 
   gameArea.appendChild(heart);
@@ -972,13 +1095,13 @@ setInterval(spawnHeart,900);
 
 const randomTexts = [
 
-  "aku takut kamu marah lebih dari takut error pas deploy 😔",
+  "aku takut kamu marah lebih dari takut bug pas deploy 😔",
 
   "tolong jangan blokir aku dulu",
 
   "aku udah nyiapin mental dimarahin 3 hari",
 
-  "kamu cantik pas senyum, pas marah kaya final boss game"
+  "kamu cantik pas senyum, pas marah kaya final boss"
 
 ];
 
@@ -988,7 +1111,9 @@ setInterval(()=>{
   document.createElement('div');
 
   bubble.innerHTML =
-  randomTexts[Math.floor(Math.random()*randomTexts.length)];
+  randomTexts[
+    Math.floor(Math.random()*randomTexts.length)
+  ];
 
   bubble.style.position='fixed';
 
