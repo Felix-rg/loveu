@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>maafin aku ya :(</title>
+<title>buat kamu :(</title>
 
 <!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
@@ -29,66 +29,68 @@ body{
   overflow-x:hidden;
   min-height:100vh;
   background:
-  linear-gradient(135deg,#ffd6ea,#e6c4ff,#ffffff);
-  color:white;
+  linear-gradient(135deg,#ff7eb3,#ff758c,#ff9ec7);
+  color:#2b1b24;
   position:relative;
 }
 
 /* =========================
-   BACKGROUND BLUR
+   BACKGROUND GLOW
 ========================= */
 
 .bg{
   position:fixed;
   inset:0;
-  overflow:hidden;
   z-index:-3;
+  overflow:hidden;
 }
 
-.blur{
+.glow{
   position:absolute;
   border-radius:50%;
-  filter:blur(90px);
-  opacity:.5;
-  animation:move 12s infinite alternate ease-in-out;
+  filter:blur(120px);
+  opacity:.35;
+  animation:move 10s infinite alternate ease-in-out;
 }
 
-.blur1{
-  width:300px;
-  height:300px;
-  background:#ff8fc7;
-  top:-50px;
-  left:-50px;
-}
-
-.blur2{
+.glow1{
   width:350px;
   height:350px;
-  background:#cf9dff;
-  bottom:-100px;
-  right:-100px;
+  background:#ffb6d9;
+  top:-100px;
+  left:-100px;
 }
 
-.blur3{
+.glow2{
+  width:400px;
+  height:400px;
+  background:#ff4f8b;
+  bottom:-150px;
+  right:-150px;
+}
+
+.glow3{
   width:250px;
   height:250px;
-  background:#ffffff;
+  background:#ffcce2;
   top:40%;
   left:40%;
 }
 
 @keyframes move{
+
   from{
     transform:translate(0,0);
   }
 
   to{
-    transform:translate(60px,-60px);
+    transform:translate(50px,-50px);
   }
+
 }
 
 /* =========================
-   HEART RAIN
+   HEARTS
 ========================= */
 
 .hearts{
@@ -102,8 +104,9 @@ body{
 .heart{
   position:absolute;
   bottom:-50px;
-  color:#ff4d88;
+  color:#fff;
   animation:floatHeart linear forwards;
+  opacity:.7;
 }
 
 @keyframes floatHeart{
@@ -132,7 +135,7 @@ body{
   position:fixed;
   inset:0;
   background:
-  linear-gradient(135deg,#ffb7dd,#d4b3ff);
+  linear-gradient(135deg,#ff7eb3,#ff4f8b);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -142,15 +145,16 @@ body{
 }
 
 #opening h1{
-  font-family:'Pacifico',cursive;
   font-size:2rem;
   text-align:center;
+  color:white;
   padding:20px;
-  text-shadow:0 0 15px rgba(255,255,255,.7);
+  font-family:'Quicksand',sans-serif;
+  font-weight:700;
 }
 
 #opening p{
-  margin-top:10px;
+  color:white;
   opacity:.9;
 }
 
@@ -160,12 +164,11 @@ body{
   padding:15px 35px;
   border-radius:999px;
   background:white;
-  color:#ff4d88;
+  color:#ff4f8b;
   font-weight:700;
-  font-size:1rem;
   cursor:pointer;
   transition:.3s;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  font-size:1rem;
 }
 
 .start-btn:hover{
@@ -180,10 +183,10 @@ body{
   display:none;
   padding:25px;
   text-align:center;
-  animation:fadeIn 1s ease;
+  animation:fade .8s ease;
 }
 
-@keyframes fadeIn{
+@keyframes fade{
 
   from{
     opacity:0;
@@ -203,8 +206,8 @@ body{
   margin:20px auto;
   border-radius:30px;
   overflow:hidden;
-  border:5px solid rgba(255,255,255,.7);
-  box-shadow:0 10px 40px rgba(255,105,180,.3);
+  border:5px solid rgba(255,255,255,.5);
+  box-shadow:0 10px 40px rgba(0,0,0,.2);
 }
 
 .photo img{
@@ -214,20 +217,23 @@ body{
 }
 
 .title{
-  font-family:'Pacifico',cursive;
-  font-size:2.2rem;
-  text-shadow:0 0 20px rgba(255,255,255,.7);
+  font-size:2rem;
+  color:white;
+  font-weight:700;
+  text-shadow:0 4px 10px rgba(0,0,0,.25);
 }
 
 .typing-box{
   margin-top:25px;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.2);
+  color:white;
+  backdrop-filter:blur(8px);
   padding:20px;
   border-radius:25px;
   line-height:1.8;
-  min-height:150px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  min-height:170px;
+  font-weight:500;
+  text-shadow:0 2px 5px rgba(0,0,0,.25);
 }
 
 /* =========================
@@ -236,14 +242,16 @@ body{
 
 .countdown{
   margin-top:25px;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(10px);
-  padding:18px;
+  background:rgba(255,255,255,.2);
+  color:white;
+  backdrop-filter:blur(8px);
+  padding:20px;
   border-radius:20px;
+  text-shadow:0 2px 5px rgba(0,0,0,.2);
 }
 
 /* =========================
-   BUTTON
+   BUTTONS
 ========================= */
 
 .buttons{
@@ -255,11 +263,10 @@ body{
   padding:15px 28px;
   border-radius:999px;
   background:white;
-  color:#ff4d88;
+  color:#ff4f8b;
   font-weight:700;
   cursor:pointer;
   transition:.3s;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .main-btn:hover{
@@ -285,8 +292,8 @@ body{
   max-width:350px;
   background:white;
   color:#444;
-  border-radius:30px;
   padding:25px;
+  border-radius:30px;
   animation:popup .4s ease;
 }
 
@@ -318,7 +325,6 @@ body{
   border-radius:999px;
   cursor:pointer;
   font-weight:700;
-  transition:.3s;
 }
 
 .angry-btn{
@@ -327,49 +333,8 @@ body{
 }
 
 .love-btn{
-  background:#ff4d88;
+  background:#ff4f8b;
   color:white;
-}
-
-/* =========================
-   MINI GAME
-========================= */
-
-.game{
-  margin-top:40px;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(10px);
-  padding:20px;
-  border-radius:25px;
-}
-
-#gameArea{
-  position:relative;
-  width:100%;
-  height:260px;
-  overflow:hidden;
-  border-radius:20px;
-  background:rgba(255,255,255,.08);
-  margin-top:15px;
-}
-
-.catch-heart{
-  position:absolute;
-  font-size:2rem;
-  cursor:pointer;
-  animation:pop .3s;
-}
-
-@keyframes pop{
-
-  from{
-    transform:scale(0);
-  }
-
-  to{
-    transform:scale(1);
-  }
-
 }
 
 /* =========================
@@ -384,31 +349,16 @@ body{
   align-items:center;
   flex-direction:column;
   background:
-  radial-gradient(circle,#ff9fd0,#d3a3ff,#fff);
+  linear-gradient(135deg,#ff7eb3,#ff4f8b);
   z-index:9999999;
-  animation:ending 2s ease forwards;
-}
-
-@keyframes ending{
-
-  from{
-    opacity:0;
-    transform:scale(1.2);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-
 }
 
 #ending h1{
-  font-family:'Pacifico',cursive;
-  font-size:2rem;
+  color:white;
   text-align:center;
   padding:20px;
-  text-shadow:0 0 20px rgba(255,255,255,.8);
+  font-size:2rem;
+  text-shadow:0 4px 10px rgba(0,0,0,.25);
 }
 
 #waLove{
@@ -416,13 +366,6 @@ body{
   font-size:5rem;
   cursor:pointer;
   animation:beat 1s infinite;
-  transition:.3s;
-  user-select:none;
-}
-
-#waLove:hover{
-  transform:scale(1.2);
-  filter:drop-shadow(0 0 20px rgba(255,255,255,.8));
 }
 
 @keyframes beat{
@@ -454,11 +397,10 @@ body{
   border:none;
   border-radius:50%;
   background:white;
-  color:#ff4d88;
+  color:#ff4f8b;
   cursor:pointer;
   z-index:999999;
   font-size:1.1rem;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 /* =========================
@@ -487,9 +429,9 @@ body{
 <!-- BACKGROUND -->
 <div class="bg">
 
-  <div class="blur blur1"></div>
-  <div class="blur blur2"></div>
-  <div class="blur blur3"></div>
+  <div class="glow glow1"></div>
+  <div class="glow glow2"></div>
+  <div class="glow glow3"></div>
 
 </div>
 
@@ -499,9 +441,9 @@ body{
 <!-- OPENING -->
 <section id="opening">
 
-  <h1>eh bentar jangan marah dulu 😔</h1>
+  <h1>eh bentar... jangan marah dulu 😔</h1>
 
-  <p>aku cuma mau nunjukin sesuatu...</p>
+  <p>aku cuma mau ngomong sesuatu...</p>
 
   <button class="start-btn" id="startBtn">
     klik aku
@@ -516,8 +458,11 @@ body{
 
 </button>
 
-<!-- YOUTUBE PLAYER -->
-<div id="youtubePlayer"></div>
+<!-- MUSIC -->
+<!-- TARUH FILE MP3 LU -->
+<audio id="bgMusic" loop>
+  <source src="musik.mp3" type="audio/mp3">
+</audio>
 
 <!-- CLICK SOUND -->
 <audio id="clickSound">
@@ -530,13 +475,13 @@ body{
   <!-- FOTO -->
   <div class="photo">
 
-    <!-- GANTI FOTO -->
-    <img src="https://i.pinimg.com/736x/f5/89/f4/f589f47dfb77d9e65e71b9f0c7b4d7aa.jpg">
+    <!-- FOTO DARI GOOGLE -->
+    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop">
 
   </div>
 
   <h1 class="title">
-    maafin aku ya cantik :(
+    maafin aku ya :(
   </h1>
 
   <!-- TYPING -->
@@ -560,24 +505,6 @@ body{
 
   </div>
 
-  <!-- MINI GAME -->
-  <div class="game">
-
-    <h3>mini game tangkap hati 😤❤️</h3>
-
-    <p>
-      karena apparently minta maaf doang belum cukup.
-    </p>
-
-    <div id="gameArea"></div>
-
-    <p style="margin-top:15px;">
-      score:
-      <span id="score">0</span>
-    </p>
-
-  </div>
-
 </div>
 
 <!-- POPUP -->
@@ -593,12 +520,8 @@ body{
 
       <br><br>
 
-      otakku kadang loadingnya lebih lemot dari wifi warung kopi.
-
-      <br><br>
-
       tapi serius...
-      aku tetep sayang kamu :(
+      aku tetep mikirin kamu terus :(
 
     </p>
 
@@ -625,19 +548,15 @@ body{
     makasih udah maafin manusia paling nyebelin ini ❤️
   </h1>
 
-  <!-- LOVE -->
   <div id="waLove">
     ❤️
   </div>
 
-  <p style="margin-top:15px;">
+  <p style="margin-top:15px; color:white;">
     pencet love nya ya 😔
   </p>
 
 </div>
-
-<!-- YOUTUBE API -->
-<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 
@@ -684,60 +603,22 @@ document.getElementById('clickSound');
 const musicBtn =
 document.getElementById('musicBtn');
 
+const bgMusic =
+document.getElementById('bgMusic');
+
 /* =========================
-   YOUTUBE MUSIC
+   MUSIC
 ========================= */
 
-let player;
-let musicStarted = false;
+bgMusic.volume = 0.2;
 
-function onYouTubeIframeAPIReady(){
-
-  player = new YT.Player('youtubePlayer', {
-
-    height:'0',
-    width:'0',
-
-    videoId:'gCYcHz2k5x0',
-
-    playerVars:{
-
-      autoplay:0,
-      loop:1,
-      playlist:'gCYcHz2k5x0',
-
-      controls:0,
-      modestbranding:1
-
-    },
-
-    events:{
-
-      onReady:(event)=>{
-
-        event.target.setVolume(15);
-
-      }
-
-    }
-
-  });
-
-}
+let muted = false;
 
 function startMusic(){
 
-  if(player && !musicStarted){
-
-    player.playVideo();
-
-    musicStarted = true;
-
-  }
+  bgMusic.play().catch(()=>{});
 
 }
-
-let muted = false;
 
 musicBtn.addEventListener('click',()=>{
 
@@ -745,7 +626,7 @@ musicBtn.addEventListener('click',()=>{
 
   if(!muted){
 
-    player.mute();
+    bgMusic.pause();
 
     musicBtn.innerHTML =
     '<i class="fa-solid fa-volume-xmark"></i>';
@@ -754,7 +635,7 @@ musicBtn.addEventListener('click',()=>{
 
   }else{
 
-    player.unMute();
+    bgMusic.play();
 
     musicBtn.innerHTML =
     '<i class="fa-solid fa-volume-high"></i>';
@@ -799,13 +680,13 @@ aku tau ngilang seharian tanpa kabar itu nyebelin banget.
 
 bukan karena aku ga peduli...
 
-kadang aku cuma bego ngatur isi kepala sendiri.
+kadang aku cuma terlalu tenggelam sama isi kepala sendiri.
 
 tapi serius...
 
 aku tetep mikirin kamu terus.
 
-dan sekarang aku bikin website ini sambil berharap kamu ga lempar sendal virtual ke aku 😔
+dan sekarang aku bikin beginian demi minta maaf 😔
 `;
 
 let i = 0;
@@ -927,7 +808,7 @@ runBtn.addEventListener('mouseover',()=>{
 
 function createConfetti(){
 
-  for(let i=0;i<120;i++){
+  for(let i=0;i<100;i++){
 
     const conf =
     document.createElement('div');
@@ -938,8 +819,6 @@ function createConfetti(){
 
     conf.style.height='10px';
 
-    conf.style.borderRadius='50%';
-
     conf.style.left =
     Math.random()*100+'vw';
 
@@ -947,6 +826,8 @@ function createConfetti(){
 
     conf.style.background =
     `hsl(${Math.random()*360},100%,70%)`;
+
+    conf.style.borderRadius='50%';
 
     conf.style.zIndex='999999';
 
@@ -1007,16 +888,13 @@ forgiveBtn.addEventListener('click',()=>{
 });
 
 /* =========================
-   WHATSAPP LOVE BUTTON
+   WHATSAPP BUTTON
 ========================= */
 
 const waLove =
 document.getElementById('waLove');
 
-/*
-   GANTI NOMOR INI
-*/
-
+/* GANTI NOMOR INI */
 const nomorWA =
 '62895378231319';
 
@@ -1033,143 +911,6 @@ waLove.addEventListener('click',()=>{
   );
 
 });
-
-/* =========================
-   MINI GAME
-========================= */
-
-const gameArea =
-document.getElementById('gameArea');
-
-const scoreText =
-document.getElementById('score');
-
-let score = 0;
-
-function spawnHeart(){
-
-  const heart =
-  document.createElement('div');
-
-  heart.classList.add('catch-heart');
-
-  heart.innerHTML='💖';
-
-  heart.style.left =
-  Math.random()*90+'%';
-
-  heart.style.top =
-  Math.random()*80+'%';
-
-  gameArea.appendChild(heart);
-
-  heart.addEventListener('click',()=>{
-
-    score++;
-
-    scoreText.innerHTML=score;
-
-    heart.remove();
-
-    if(score === 14){
-
-      alert('cie masih lanjut main 😤❤️');
-
-    }
-
-  });
-
-  setTimeout(()=>{
-
-    heart.remove();
-
-  },2000);
-
-}
-
-setInterval(spawnHeart,900);
-
-/* =========================
-   RANDOM DIALOG
-========================= */
-
-const randomTexts = [
-
-  "aku takut kamu marah lebih dari takut bug pas deploy 😔",
-
-  "tolong jangan blokir aku dulu",
-
-  "aku udah nyiapin mental dimarahin 3 hari",
-
-  "kamu cantik pas senyum, pas marah kaya final boss"
-
-];
-
-setInterval(()=>{
-
-  const bubble =
-  document.createElement('div');
-
-  bubble.innerHTML =
-  randomTexts[
-    Math.floor(Math.random()*randomTexts.length)
-  ];
-
-  bubble.style.position='fixed';
-
-  bubble.style.bottom='20px';
-
-  bubble.style.left='50%';
-
-  bubble.style.transform='translateX(-50%)';
-
-  bubble.style.background=
-  'rgba(255,255,255,.2)';
-
-  bubble.style.padding='12px 18px';
-
-  bubble.style.borderRadius='999px';
-
-  bubble.style.backdropFilter='blur(10px)';
-
-  bubble.style.color='white';
-
-  bubble.style.zIndex='999';
-
-  bubble.style.fontSize='.9rem';
-
-  document.body.appendChild(bubble);
-
-  bubble.animate([
-
-    {
-      opacity:0,
-      transform:'translateX(-50%) translateY(20px)'
-    },
-
-    {
-      opacity:1,
-      transform:'translateX(-50%) translateY(0)'
-    },
-
-    {
-      opacity:0,
-      transform:'translateX(-50%) translateY(-20px)'
-    }
-
-  ],{
-
-    duration:4000
-
-  });
-
-  setTimeout(()=>{
-
-    bubble.remove();
-
-  },4000);
-
-},7000);
 
 </script>
 
